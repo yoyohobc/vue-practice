@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<!--
+Created using JS Bin
+http://jsbin.com
+
+Copyright (c) 2020 by anonymous (http://jsbin.com/wogavatehi/1/edit)
+
+Released under the MIT license: http://jsbin.mit-license.org
+-->
+<meta name="robots" content="noindex">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.18.0/axios.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width">
+  <title>後台管理</title>
+  <link rel="stylesheet" href="css/main.css">
+</head>
+  <body>
+    <!--<p id="k">Player 1: Chris</p><br>
+    <div id="app">
+      <button v-on:click="created">Get Advice!</button>
+      <h2>Advice of the day</h2>
+      <p>ID:  {{adviceID}}</p>
+      <p>Advice: {{advice}}</p>
+    </div>-->
+    <div align="center" id="app2">
+      <h2 >72UAT驗證碼</h2>
+      <button v-on:click="validatecode">刷新</button>
+      <table style="border:3px #cccccc solid;" cellpadding="10" border='1'>
+        <thead>
+          <tr class="info" role="row">
+            <th rowspan="1" colspan="1" align="left" v-for="item in thead">{{item}}</th>
+          </tr>
+        </thead>
+        <tbody v-show="res_data != 'loading...'">
+          <tr v-for="(item,index) in res_data">
+            <td>{{index+1}}</td>
+            <td>{{item.code}}</td>
+            <td>{{item.mobilePhone}}</td>
+            <td v-if="item.codeStatus === 0">未使用</td>
+            <td v-else-if="item.codeStatus === 1">已使用</td>
+            <td v-else>已失效</td>
+            <td>{{item.email}}</td>
+            <td v-if="item.smsTunnel === 6">至臻</td>
+            <td v-else-if="item.smsTunnel === 0">人工</td>
+            <td v-else-if="item.smsTunnel === 5">麥訊通</td>
+            <td v-else>未知</td>
+            <td>{{new Date(item.createdDate).toLocaleString()}}</td>
+            <td>{{new Date(item.updatedDate).toLocaleString()}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <script src="js/main.js"></script>
+</body>
+</html>
