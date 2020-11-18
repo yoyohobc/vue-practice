@@ -16,7 +16,7 @@ new Vue({
       this.res_code = response.data.code
       this.msg = response.data.ch_msg
       if(this.res_code == 3000){
-        window.location.href = 'restapi_button2.html';
+        window.location.href = 'https://yoyohobc.github.io/restapi_button2';
       }
       else{
         alert(this.msg);
